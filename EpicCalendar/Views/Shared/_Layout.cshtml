@@ -14,14 +14,20 @@
         <div class="btn-group " role="group" aria-label="...">
             <button type="button" class="btn btn-default">Übersicht</button>
             <button type="button" class="btn btn-default">Zukünftige Ereignisse</button>
+            @if (Session["CurrentUser"] == null)
+            {
+                <button type="button" class="btn btn-default">Anmelden</button>
+            }
+            else
+            {
+                <button type="button" class="btn btn-default">Profil</button>
+            }
         </div>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - EpicCalendar</p>
-        </footer>
+        
     </div>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>

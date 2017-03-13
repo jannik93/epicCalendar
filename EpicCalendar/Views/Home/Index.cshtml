@@ -2,9 +2,16 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="calendar-headline">
+    <a href="~/Home/Index?Month=@DateTime.Now.AddMonths(-1).Month"><span class="glyphicon glyphicon-arrow-left" /> </a><span>Ansicht Monat : @DateTime.Now.ToString("MMMM")</span> <a href="~/Home/Index?Month=@DateTime.Now.AddMonths(1).Month"><span class="glyphicon glyphicon-arrow-right"/></a>
+</div>
 
 
-
-<div class="calendar">
-
+<div class="calendar-container">
+    @for (int i = 1; i <= DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month); i++)
+    {
+        <div class="calendar">
+            <span class="calendar-title">@string.Format("{0}. {1}",i,@DateTime.Now.ToString("MMMM"))</span>
+        </div>
+    }
 </div>
